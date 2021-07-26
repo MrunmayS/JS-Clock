@@ -7,6 +7,11 @@
 body {
   background: linear-gradient(to right);
   background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
 .clock {
@@ -67,4 +72,48 @@ body {
 
 .number11 {
   transform: rotate(330deg);
+}
+
+.clock .hand {
+  --rotation: 0;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+
+  transform-origin: bottom;
+  border: 1px solid whitesmoke;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  z-index: 10;
+  transform: translateX(-50%) rotate(var(--rotation));
+}
+.clock::after {
+  content: "";
+  position: absolute;
+  background-color: black;
+  z-index: 11;
+  width: 15px;
+  height: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.second {
+  width: 3px;
+  height: 45%;
+  background-color: red;
+}
+
+.minute {
+  width: 7px;
+  height: 40%;
+  background-color: black;
+}
+
+.hour {
+  width: 10px;
+  height: 35%;
+  background-color: black;
 }
